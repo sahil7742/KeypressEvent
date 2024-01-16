@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+       *{
+        margin: 0;
+        padding: 0;
+
+        }
+        body{
+            font-family: 'Inconsolata',sans-serif;
+            background: #2a362a;
+            display: grid;
+            place-items: center;
+        }
+        .main-div{
+            width: 100vw;
+            height: 100vw;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: azure;
+        }
+        #keys{
+            color:aquamarine;
+        
+        }
+        input[type="text"]{font:15px/24px "lato", Arial , sans-serif; color: #333; width: 30%; box-sizing: border-box; letter-spacing: 1px ;}
+        .effect-1{border:0; padding: 7px 0; border-bottom: 1px solid #ccc;}
+
+        .effect-1~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #39f; transition: 0.8s; }
+        .effect-1:focus ~ .focus-border{width: 100% ; transition: 0.4s;}
+
+    </style>
+</head>
+<body>
+    <div class="main-div">
+        <div>
+            <p> function is trigered when the user is pressing a key in the input field</p>
+            <br>
+            <input type="text" class="effect-1" onkeypress="keyPress()" onkeydown="keyDown()" onkeyup="keyUp()">
+            <br/>
+            <p id="keys"></p>
+        </div>
+    </div>
+    <script>
+        const keyPress =()=>{
+            document.getElementById('keys').innerHTML = `you press ${event.key} and it's code is ${event.code}`;
+        }
+        //better use to 2nd and 3rd
+        const keyDown =()=>{
+            document.getElementById('keys').innerHTML = `key is down`
+        }
+        const keyUp = () =>{
+            document.getElementById('keys').innerHTML = `key is up`
+        }
+
+    </script>
+
+    
+</body>
+</html>
+
+
